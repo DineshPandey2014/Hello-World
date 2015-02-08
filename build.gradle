@@ -11,7 +11,9 @@ buildscript {
     }
 }
 
-mainClassName = 'hello.Application'
+bootRepackage {
+    mainClass = 'hello.Application'
+}
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
