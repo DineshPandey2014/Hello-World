@@ -1,3 +1,8 @@
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'application'
+apply plugin: 'idea'
+
 buildscript {
     repositories {
         //Required repos
@@ -11,14 +16,9 @@ buildscript {
     }
 }
 
-bootRepackage {
-    mainClass = 'hello.Application'
-}
+mainClassName = "hello.Application"
 
-apply plugin: 'java'
-apply plugin: 'spring-boot'
-apply plugin: 'application'
-apply plugin: 'idea'
+
 
 sourceCompatibility = 1.5
 version = '1.0'
@@ -34,6 +34,10 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
 }
 
+jar {
+    baseName = 'hello'
+    version =  '0.1.0'
+}
 
 repositories {
     mavenCentral()
@@ -43,4 +47,8 @@ repositories {
 
 repositories {
     mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
 }
